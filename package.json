@@ -18,8 +18,10 @@
   "homepage": "https://github.com/abaltra/lol-profiles#readme",
   "dependencies": {
     "axios": "^0.16.2",
+    "bluebird": "^3.5.0",
     "discord.io": "^2.5.2",
     "minimist": "^1.2.0",
+    "redis": "^2.8.0",
     "winston": "^2.3.1"
   }
 }

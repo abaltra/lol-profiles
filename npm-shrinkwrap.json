@@ -18,6 +18,11 @@
         "is-buffer": "1.1.5"
       }
     },
+    "bluebird": {
+      "version": "3.5.0",
+      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-3.5.0.tgz",
+      "integrity": "sha1-eRQg1/VR7qKJdFOop3ZT+WYG1nw="
+    },
     "cjopus": {
       "version": "0.0.4",
       "resolved": "https://registry.npmjs.org/cjopus/-/cjopus-0.0.4.tgz",
@@ -51,6 +56,11 @@
         "ws": "1.1.4"
       }
     },
+    "double-ended-queue": {
+      "version": "2.1.0-0",
+      "resolved": "https://registry.npmjs.org/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz",
+      "integrity": "sha1-ED01J/0xUo9AGIEwyEHv3XgmTlw="
+    },
     "eyes": {
       "version": "0.1.8",
       "resolved": "https://registry.npmjs.org/eyes/-/eyes-0.1.8.tgz",
@@ -74,11 +84,6 @@
       "resolved": "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz",
       "integrity": "sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo="
     },
-    "keep-running": {
-      "version": "0.1.2",
-      "resolved": "https://registry.npmjs.org/keep-running/-/keep-running-0.1.2.tgz",
-      "integrity": "sha1-O93Q0zWeBYeNvLjc+rp5A9Nohy0="
-    },
     "minimist": {
       "version": "1.2.0",
       "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz",
@@ -93,6 +98,26 @@
       "version": "0.0.6",
       "resolved": "https://registry.npmjs.org/options/-/options-0.0.6.tgz",
       "integrity": "sha1-7CLTEoBrtT5zF3Pnza788cZDEo8="
+    },
+    "redis": {
+      "version": "2.8.0",
+      "resolved": "https://registry.npmjs.org/redis/-/redis-2.8.0.tgz",
+      "integrity": "sha512-M1OkonEQwtRmZv4tEWF2VgpG0JWJ8Fv1PhlgT5+B+uNq2cA3Rt1Yt/ryoR+vQNOQcIEgdCdfH0jr3bDpihAw1A==",
+      "requires": {
+        "double-ended-queue": "2.1.0-0",
+        "redis-commands": "1.3.1",
+        "redis-parser": "2.6.0"
+      }
+    },
+    "redis-commands": {
+      "version": "1.3.1",
+      "resolved": "https://registry.npmjs.org/redis-commands/-/redis-commands-1.3.1.tgz",
+      "integrity": "sha1-gdgm9F+pyLIBH0zXoP5ZfSQdRCs="
+    },
+    "redis-parser": {
+      "version": "2.6.0",
+      "resolved": "https://registry.npmjs.org/redis-parser/-/redis-parser-2.6.0.tgz",
+      "integrity": "sha1-Uu0J2srBCPGmMcB+m2mUHnoZUEs="
     },
     "stack-trace": {
       "version": "0.0.10",
