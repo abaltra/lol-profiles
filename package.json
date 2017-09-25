@@ -1,0 +1,25 @@
+{
+  "name": "lol-profiles",
+  "version": "1.0.0",
+  "description": "Discord bot that display's League of Legends players' profiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abaltra/lol-profiles.git"
+  },
+  "author": "Alejandro Baltra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abaltra/lol-profiles/issues"
+  },
+  "homepage": "https://github.com/abaltra/lol-profiles#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "discord.io": "^2.5.2",
+    "minimist": "^1.2.0",
+    "winston": "^2.3.1"
+  }
+}

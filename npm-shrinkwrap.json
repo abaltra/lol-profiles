@@ -1,0 +1,135 @@
+{
+  "name": "lol-profiles",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "async": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/async/-/async-1.0.0.tgz",
+      "integrity": "sha1-+PwEyjoTeErenhZBr5hXjPvWR6k="
+    },
+    "axios": {
+      "version": "0.16.2",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-0.16.2.tgz",
+      "integrity": "sha1-uk+S8XFn37q0CYN4VFS5rBScPG0=",
+      "requires": {
+        "follow-redirects": "1.2.4",
+        "is-buffer": "1.1.5"
+      }
+    },
+    "cjopus": {
+      "version": "0.0.4",
+      "resolved": "https://registry.npmjs.org/cjopus/-/cjopus-0.0.4.tgz",
+      "integrity": "sha1-RvPPyWuD99eERt6LTP2ZS1iJqaA="
+    },
+    "colors": {
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/colors/-/colors-1.0.3.tgz",
+      "integrity": "sha1-BDP0TYCWgP3rYO0mDxsMJi6CpAs="
+    },
+    "cycle": {
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/cycle/-/cycle-1.0.3.tgz",
+      "integrity": "sha1-IegLK+hYD5i0aPN5QwZisEbDStI="
+    },
+    "debug": {
+      "version": "2.6.9",
+      "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz",
+      "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
+      "requires": {
+        "ms": "2.0.0"
+      }
+    },
+    "discord.io": {
+      "version": "2.5.2",
+      "resolved": "https://registry.npmjs.org/discord.io/-/discord.io-2.5.2.tgz",
+      "integrity": "sha512-dFJdIQOh1ZBDdPr3/Ygz9XSV2IvdvAaRgQZY7K2VoHsIR9I8EDMUUIqEossnxt4V/A3ZoocGgct6K3zYjnrsiw==",
+      "requires": {
+        "cjopus": "0.0.4",
+        "tweetnacl": "0.14.5",
+        "ws": "1.1.4"
+      }
+    },
+    "eyes": {
+      "version": "0.1.8",
+      "resolved": "https://registry.npmjs.org/eyes/-/eyes-0.1.8.tgz",
+      "integrity": "sha1-Ys8SAjTGg3hdkCNIqADvPgzCC8A="
+    },
+    "follow-redirects": {
+      "version": "1.2.4",
+      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.2.4.tgz",
+      "integrity": "sha512-Suw6KewLV2hReSyEOeql+UUkBVyiBm3ok1VPrVFRZnQInWpdoZbbiG5i8aJVSjTr0yQ4Ava0Sh6/joCg1Brdqw==",
+      "requires": {
+        "debug": "2.6.9"
+      }
+    },
+    "is-buffer": {
+      "version": "1.1.5",
+      "resolved": "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.5.tgz",
+      "integrity": "sha1-Hzsm72E7IUuIy8ojzGwB2Hlh7sw="
+    },
+    "isstream": {
+      "version": "0.1.2",
+      "resolved": "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz",
+      "integrity": "sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo="
+    },
+    "keep-running": {
+      "version": "0.1.2",
+      "resolved": "https://registry.npmjs.org/keep-running/-/keep-running-0.1.2.tgz",
+      "integrity": "sha1-O93Q0zWeBYeNvLjc+rp5A9Nohy0="
+    },
+    "minimist": {
+      "version": "1.2.0",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz",
+      "integrity": "sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ="
+    },
+    "ms": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",
+      "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="
+    },
+    "options": {
+      "version": "0.0.6",
+      "resolved": "https://registry.npmjs.org/options/-/options-0.0.6.tgz",
+      "integrity": "sha1-7CLTEoBrtT5zF3Pnza788cZDEo8="
+    },
+    "stack-trace": {
+      "version": "0.0.10",
+      "resolved": "https://registry.npmjs.org/stack-trace/-/stack-trace-0.0.10.tgz",
+      "integrity": "sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA="
+    },
+    "tweetnacl": {
+      "version": "0.14.5",
+      "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz",
+      "integrity": "sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q="
+    },
+    "ultron": {
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/ultron/-/ultron-1.0.2.tgz",
+      "integrity": "sha1-rOEWq1V80Zc4ak6I9GhTeMiy5Po="
+    },
+    "winston": {
+      "version": "2.3.1",
+      "resolved": "https://registry.npmjs.org/winston/-/winston-2.3.1.tgz",
+      "integrity": "sha1-C0hCDZeMAYBM8CMLZIhhWYIloRk=",
+      "requires": {
+        "async": "1.0.0",
+        "colors": "1.0.3",
+        "cycle": "1.0.3",
+        "eyes": "0.1.8",
+        "isstream": "0.1.2",
+        "stack-trace": "0.0.10"
+      }
+    },
+    "ws": {
+      "version": "1.1.4",
+      "resolved": "https://registry.npmjs.org/ws/-/ws-1.1.4.tgz",
+      "integrity": "sha1-V/QNA2gy5fUFVmKjl8Tedu1mv2E=",
+      "requires": {
+        "options": "0.0.6",
+        "ultron": "1.0.2"
+      }
+    }
+  }
+}
