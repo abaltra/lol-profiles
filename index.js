@@ -2,6 +2,7 @@ const Discord = require('discord.io')
 const logger = require('winston')
 const redis = require('redis')
 const bluebird = require('bluebird')
+const config = require('./config')
 bluebird.promisifyAll(redis.RedisClient.prototype);
 
 const axios = require('axios')
@@ -68,17 +69,17 @@ function getLeagueData(data, summonerId) {
 function handleErrors(bot, channelId, code) {
   if (code === 404) {
     bot.sendMessage({
-      channelId: channelId,
+      to: channelId,
       message: 'Summoner not found.'
     });
   } else if (code === 429) {
     bot.sendMessage({
-      channelId: channelId,
+      to: channelId,
       message: 'Getting throttled by Riot. Wait a few and try again.'
     });
   } else {
     bot.sendMessage({
-      channelId: channelId,
+      to: channelId,
       message: 'Something went wrong. Try again'
     })
   }
@@ -87,6 +88,8 @@ function handleErrors(bot, channelId, code) {
 async function run() {
   let discordToken = argv.discordToken;
   let riotKey = argv.riotKey;
+
+  let redisClient = redis.createClient(config.redis);
 
   if (!discordToken || !riotKey) {
     logger.error(`Riot Key and Discord Key are both required`);
@@ -130,7 +133,7 @@ async function run() {
           return;
         }
 
-        if (!region || !VALID_REGIONS[region]) {
+        if (!region || !VALID_REGIONS[region.toLowerCase()]) {
           //final validation
           bot.sendMessage({
             to: channelId,
@@ -139,13 +142,27 @@ async function run() {
           return;
         }
 
-        let url = buildUrl(SUMMONER_URL, { '${region}': VALID_REGIONS[region], '${summonername}': cleanSummonerName(summonername), '${riotkey}': riotKey });
+        let url = buildUrl(SUMMONER_URL, { '${region}': VALID_REGIONS[region.toLowerCase()], '${summonername}': cleanSummonerName(summonername), '${riotkey}': riotKey });
 
         try {
+            //Check if we have it in redis, don't want to throttle riot
+            let rData = await redisClient.getAsync(`lolprofiles:${cleanSummonerName(summonername)}:${region.toLowerCase()}`);
+            if (rData) {
+              rData = JSON.parse(rData);
+              let message = `${rData.name} is a level ${rData.summonerLevel} summoner. Currently in ${rData.leaguename} (${rData.tier} ${rData.rank}) with a win rate of ${rData.winrate.toFixed(2)}%`;
+              if (rData.miniSeries) {
+                message += `. He's currently in promo!, ${rData.miniSeries.wins}-${rData.miniSeries.losses} out of ${rData.miniSeries.target} games.`;
+              }
+              bot.sendMessage({
+                to: channelId,
+                message: message
+              });
+              return;
+            }
             let response = await axios.get(url);
             if (response.status === 200) {
               //get the player profile first
-              let leagueUrl = buildUrl(LEAGUE_URL, { '${region}': VALID_REGIONS[region], '${summonerid}': response.data.id, '${riotkey}': riotKey });
+              let leagueUrl = buildUrl(LEAGUE_URL, { '${region}': VALID_REGIONS[region.toLowerCase()], '${summonerid}': response.data.id, '${riotkey}': riotKey });
               let leagueResponse = await axios.get(leagueUrl);
 
               if (leagueResponse.status === 200) {
@@ -158,18 +175,27 @@ async function run() {
                   to: channelId,
                   message: message
                 });
-              } else {
-                handleErrors(bot, channelId, leagueResponse.status);
-                return;
+                let obj = {
+                  name: response.data.name,
+                  summonerLevel: response.data.summonerLevel,
+                  leaguename: league.name,
+                  tier: league.tier,
+                  rank: league.rank,
+                  winrate: league.winrate,
+                  miniSeries: league.miniSeries
+                }
+
+                await redisClient.setAsync(`lolprofiles:${cleanSummonerName(summonername)}:${region.toLowerCase()}`, JSON.stringify(obj), 'EX', 10 * 60); //10 minutes expiry time
+
               }
-
-            } else {
-              handleErrors(bot, channelId, response.status);
             }
-
             return;
         } catch (e) {
-          console.log(e)
+          if (e.response && e.response.status) {
+            handleErrors(bot, channelId, e.response.status);
+          } else {
+            handleErrors(bot, channelId, 500);
+          }
         }
 
       }
