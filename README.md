@@ -16,3 +16,7 @@ After getting both keys, just run this to start the bot:
 npm i
 node index.js --discordToken=YOUR_DISCORD_TOKEN --riotKey=YOUR_RIOT_KEY
 ```
+When the bot's running, just type in in chat:
+```
+!lolprofile SUMMONER_NAME:REGION
+```
